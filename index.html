@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro Soler Rey — Portafolio de Ingeniería</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --paper: #f5f2eb;
+    --accent: #0e624e;
+    --accent-light: #e1f5ee;
+    --muted: #6b6b62;
+    --border: #d8d4c8;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* PORTADA */
+  .cover {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-left {
+    background: var(--accent);
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .cover-left::after {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 80px;
+    height: 100%;
+    background: var(--accent);
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+    z-index: 2;
+  }
+
+  .cover-right {
+    background: var(--paper);
+    padding: 80px 60px 80px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    font-weight: 400;
+  }
+
+  .cover-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 52px;
+    color: white;
+    line-height: 1.1;
+    margin-top: 12px;
+  }
+
+  .cover-role {
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 20px;
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .cover-divider {
+    width: 40px;
+    height: 2px;
+    background: rgba(255,255,255,0.3);
+    margin: 32px 0;
+  }
+
+  .cover-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: white;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .cover-right-tag {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+
+  .cover-right h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .cover-right p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 380px;
+    line-height: 1.8;
+  }
+
+  .cover-toc {
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+    padding-top: 32px;
+  }
+
+  .toc-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .toc-num {
+    width: 24px;
+    height: 24px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  /* SEPARADOR */
+  .page-break {
+    border-top: 2px solid var(--border);
+    margin: 80px 0 0;
+    page-break-before: always;
+  }
+
+  /* CASO */
+  .case {
+    padding: 80px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .case-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 60px;
+  }
+
+  .case-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .case-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 38px;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+
+  .case-meta {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    min-width: 220px;
+    font-size: 13px;
+  }
+
+  .meta-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .meta-row:last-child { border-bottom: none; }
+
+  .meta-key {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .meta-val {
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 13px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    margin-top: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .case p {
+    font-size: 15px;
+    color: #3a3a34;
+    line-height: 1.85;
+    max-width: 680px;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .pill {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 12px;
+    color: var(--ink);
+  }
+
+  .pill-accent {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .result-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .result-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+  }
+
+  .result-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .result-metric {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 16px;
+    max-width: 680px;
+  }
+
+  .step {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    padding-bottom: 24px;
+  }
+
+  .step:last-child { padding-bottom: 0; }
+
+  .step-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .step-connector {
+    width: 1px;
+    flex: 1;
+    background: var(--border);
+    margin-top: 4px;
+  }
+
+  .step:last-child .step-connector { display: none; }
+
+  .step-content { padding-top: 4px; }
+
+  .step-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .learning-box {
+    background: var(--accent);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-top: 16px;
+    max-width: 680px;
+  }
+
+  .learning-box p {
+    color: rgba(255,255,255,0.9);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .learning-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+  }
+
+  /* PIE DE PÁGINA */
+  .footer {
+    background: var(--ink);
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-top: 80px;
+  }
+
+  .footer-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: white;
+  }
+
+  .footer-role {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 8px;
+  }
+
+  .footer-contact {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    line-height: 2;
+  }
+
+  @media print {
+    .cover { page-break-after: always; }
+    .case { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<div class="cover">
+  <div class="cover-left">
+    <div>
+      <div class="cover-tag">Portafolio de Ingeniería</div>
+      <div class="cover-name">Alejandro<br>Soler Rey</div>
+      <div class="cover-role">
+        Director de Ingeniería de Proyectos<br>
+        Ingeniero de Procesos Químicos<br>
+        Líder de Proyectos Técnicos
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-stats">
+        <div>
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+        <div>
+          <div class="stat-num">$365k</div>
+          <div class="stat-label">CAPEX gestionado</div>
+        </div>
+        <div>
+          <div class="stat-num">10</div>
+          <div class="stat-label">Ingenieros liderados</div>
+        </div>
+        <div>
+          <div class="stat-num">6</div>
+          <div class="stat-label">Casos documentados</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.35);">Cayambe, Ecuador — 2025</div>
+  </div>
+
+  <div class="cover-right">
+    <div class="cover-right-tag">Sobre este portafolio</div>
+    <h2>Criterio técnico.<br>Resultados medibles.</h2>
+    <p>Una selección de proyectos de ingeniería liderados en optimización de procesos, eficiencia energética e inversión de capital — combinando profundidad técnica con disciplina en gestión de proyectos.</p>
+
+    <div class="cover-toc">
+      <div class="toc-label">Casos de estudio</div>
+      <a class="toc-item" href="#caso1">
+        <span class="toc-num">1</span>
+        Arranque de Evaporador y Columna de Destilación
+      </a>
+      <a class="toc-item" href="#caso2">
+        <span class="toc-num">2</span>
+        Transición Energética: Solar + Conversión a GLP
+      </a>
+      <a class="toc-item" href="#caso3">
+        <span class="toc-num">3</span>
+        Optimización de Ciclo de Proceso — Proyecto USD 80k
+      </a>
+      <a class="toc-item" href="#caso4">
+        <span class="toc-num">4</span>
+        Monitoreo de Corriente IoT para Mantenimiento Predictivo
+      </a>
+      <a class="toc-item" href="#caso5">
+        <span class="toc-num">5</span>
+        Reducción de Desecho en Bodega — Lean Six Sigma
+      </a>
+      <a class="toc-item" href="#caso6">
+        <span class="toc-num">6</span>
+        Proceso con Dióxido de Cloro y Torres de Absorción
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- CASO 1 -->
+<div class="page-break"></div>
+<div class="case" id="caso1">
+  <div class="case-header">
+    <div>
+      <div class="case-number">Caso de Estudio 01</div>
+      <div class="case-title">Evaporador de Película Ascendente<br>y Columna de Destilación Fraccionada</div>
+    </div>
+    <div class="case-meta">
+      <div class="meta-row">
+        <span class="meta-key">Rol</span>
+        <span class="meta-val">Líder de Proyectos Técnicos</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">CAPEX</span>
+        <span class="meta-val">USD 180,000</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Industria</span>
+        <span class="meta-val">Agroindustrial</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Duración</span>
+        <span class="meta-val">8 meses</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">El problema</div>
+  <p>La planta recuperaba solo una fracción del potencial de su materia prima, con volúmenes significativos de producto siendo descargados como desecho líquido al sistema de tratamiento de aguas (PTAR). Esto representaba pérdida de producto y elevados costos operativos.</p>
+
+  <div class="section-label">La solución</div>
+  <p>Diseño e implementación de dos unidades de separación complementarias que operan al vacío: un evaporador de película ascendente para concentración inicial, seguido de una columna de destilación fraccionada para recuperación de producto. El proyecto abarcó desde la ingeniería básica hasta el diseño detallado con Aspen Plus y Aspen EDR, adquisición internacional, fabricación local del equipo con personal interno de soldadura, y puesta en marcha de sistemas al vacío.</p>
+
+  <div class="section-label">Metodología y herramientas</div>
+  <div class="pills">
+    <span class="pill pill-accent">Simulación Aspen Plus</span>
+    <span class="pill pill-accent">Aspen EDR — diseño de intercambiadores</span>
+    <span class="pill pill-accent">Diseño P&ID</span>
+    <span class="pill pill-accent">Análisis HAZOP</span>
+    <span class="pill pill-accent">Sistemas al vacío</span>
+    <span class="pill">MS Project</span>
+    <span class="pill">RFQ internacional</span>
+    <span class="pill">Balances materia/energía</span>
+    <span class="pill">Logística de importación</span>
+    <span class="pill">Supervisión de fabricación</span>
+  </div>
+
+  <div class="section-label">Proceso</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-line"><div class="step-dot">1</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Ingeniería básica y de detalle</div>
+        <div class="step-desc">Balances de materia y energía, dimensionamiento de equipos al vacío, diseño de intercambiadores en Aspen EDR, desarrollo de P&IDs y análisis HAZOP.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">2</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Adquisición internacional</div>
+        <div class="step-desc">Proceso de RFQ con proveedores internacionales, revisión de especificaciones técnicas en inglés, negociación de precios y coordinación de importación de componentes críticos.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">3</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Fabricación con equipo interno</div>
+        <div class="step-desc">Supervisión directa de la construcción del equipo con personal interno de soldadura — coordinación de fabricación, control de calidad de soldaduras y verificación de hermeticidad para operación al vacío.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">4</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Puesta en marcha al vacío</div>
+        <div class="step-desc">Arranque de sistemas al vacío por primera vez — desafío técnico mayor que requirió protocolos estrictos de prueba de hermeticidad, control de presión y validación de parámetros operativos bajo condiciones de vacío.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">5</div></div>
+      <div class="step-content">
+        <div class="step-title">Monitoreo de desempeño</div>
+        <div class="step-desc">Seguimiento de KPIs mediante dashboards en Power BI presentados a dirección en comités de gestión.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Resultados</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-value">+37.5%</div>
+      <div class="result-metric">Recuperación de materia prima</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">-66.8%</div>
+      <div class="result-metric">Desechos líquidos a PTAR</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">$180k</div>
+      <div class="result-metric">CAPEX entregado en alcance</div>
+    </div>
+  </div>
+
+  <div class="section-label">Aprendizaje clave</div>
+  <div class="learning-box">
+    <div class="learning-label">Reflexión</div>
+    <p>Este proyecto fue el más desafiante técnicamente de mi carrera hasta ese momento. Nunca había trabajado con sistemas al vacío — y todo fue un reto: el diseño, la fabricación, las pruebas de hermeticidad, el arranque. No había manual de instrucciones para muchos de los problemas que aparecieron. Supervisar la fabricación con el equipo interno de soldadura mientras gestionaba la adquisición internacional en paralelo exigió operar simultáneamente como ingeniero de diseño, jefe de obra y project manager. Que el sistema haya arrancado exitosamente y alcanzado +37.5% de recuperación es el resultado del que más me enorgullezco.</p>
+  </div>
+</div>
+
+<!-- CASO 2 -->
+<div class="page-break"></div>
+<div class="case" id="caso2">
+  <div class="case-header">
+    <div>
+      <div class="case-number">Caso de Estudio 02</div>
+      <div class="case-title">Transición Energética:<br>Solar Térmico + Conversión Diésel a GLP</div>
+    </div>
+    <div class="case-meta">
+      <div class="meta-row">
+        <span class="meta-key">Rol</span>
+        <span class="meta-val">Líder de Proyectos Técnicos</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">CAPEX</span>
+        <span class="meta-val">USD 35,000</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Duración total</span>
+        <span class="meta-val">6 meses (paralelo)</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Enfoque</span>
+        <span class="meta-val">Energía y Sostenibilidad</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">El problema</div>
+  <p>La planta tenía consumos elevados de energía eléctrica y combustible. La caldera operaba con diésel — costoso y con alta huella de carbono — y el proceso de calentamiento de agua consumía energía eléctrica significativa sin aprovechar ninguna fuente renovable. Ambos problemas representaban costos operativos evitables.</p>
+
+  <div class="section-label">Dos proyectos, un mismo objetivo</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;max-width:680px;">
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;border-top:3px solid var(--accent);">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Proyecto A — 3 meses</div>
+      <div style="font-size:14px;font-weight:500;color:var(--ink);margin-bottom:8px;">Conversión Diésel → GLP</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6;">Investigación de fuentes de combustible alternas, análisis de costos y negociación de comodato con proveedor de GLP. Gestión de obras civiles con personal interno y coordinación de la transición operativa sin afectar producción.</div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);border-radius:12px;padding:20px;border-top:3px solid var(--accent);">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Proyecto B — 6 meses</div>
+      <div style="font-size:14px;font-weight:500;color:var(--ink);margin-bottom:8px;">Paneles Solares Térmicos</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6;">Propuesta basada en el potencial solar de Cayambe. Coordinación del contratista externo para la instalación y diseño propio del sistema de distribución de agua caliente al proceso — desde la ingeniería hasta la puesta en marcha.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Metodología y herramientas</div>
+  <div class="pills">
+    <span class="pill pill-accent">Balance energético comparativo</span>
+    <span class="pill pill-accent">Análisis de radiación solar</span>
+    <span class="pill pill-accent">Modelado ROI</span>
+    <span class="pill pill-accent">Diseño hidráulico</span>
+    <span class="pill">Negociación comodato</span>
+    <span class="pill">Gestión de obras civiles</span>
+    <span class="pill">Coordinación de contratistas</span>
+    <span class="pill">MS Project</span>
+  </div>
+
+  <div class="section-label">Resultados</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-value">-28%</div>
+      <div class="result-metric">Consumo eléctrico — paneles solares térmicos</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">-15.4%</div>
+      <div class="result-metric">Reducción en costo de combustible</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">-40%</div>
+      <div class="result-metric">Reducción de huella de carbono</div>
+    </div>
+  </div>
+
+  <div class="section-label">Aprendizaje clave</div>
+  <div class="learning-box">
+    <div class="learning-label">Reflexión</div>
+    <p>La conversión a GLP no costó casi nada porque investigué el mercado y negocié un comodato — el proveedor instaló los equipos a cambio del consumo. Esa solución no estaba en ningún manual: vino de preguntar qué más existía antes de asumir que había que comprar. Con los paneles solares fue igual — Cayambe produce el 70% de las rosas de Ecuador precisamente porque tiene una de las mayores irradiaciones solares del país. Si las rosas crecen por el sol, el proceso industrial también puede aprovecharlo. Ambos proyectos me enseñaron que la mejor ingeniería no siempre es la más costosa — es la más inteligente.</p>
+  </div>
+</div>
+
+
+<!-- CASO 3 -->
+<div class="page-break"></div>
+<div class="case" id="caso3">
+  <div class="case-header">
+    <div>
+      <div class="case-number">Caso de Estudio 03</div>
+      <div class="case-title">Optimización de Ciclo de Proceso<br>para Expansión de Capacidad</div>
+    </div>
+    <div class="case-meta">
+      <div class="meta-row">
+        <span class="meta-key">Rol</span>
+        <span class="meta-val">Director de Ing. de Proyectos</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">CAPEX</span>
+        <span class="meta-val">USD 80,000</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Duración</span>
+        <span class="meta-val">12 meses</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Expansión</span>
+        <span class="meta-val">1.66x capacidad</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">El problema</div>
+  <p>Con el mercado en crecimiento, gerencia aprobó expandir la capacidad de producción 1.66 veces. El proceso existente hacía inviable esa expansión — requería demasiado espacio físico y una inversión en equipos fuera del presupuesto disponible. Era necesario repensar el proceso desde adentro antes de poder crecer.</p>
+
+  <div class="section-label">La solución</div>
+  <p>Lideré 6 meses de investigación en laboratorio con el equipo técnico para encontrar una nueva formulación que hiciera viable la expansión. Tras dar con una formulación que reducía el ciclo de proceso en un tercio, desarrollé la ingeniería conceptual y lideré al equipo en la ingeniería básica y de detalle. La implementación tomó 6 meses adicionales — un año completo de proyecto de principio a fin.</p>
+
+  <div class="section-label">Metodología y herramientas</div>
+  <div class="pills">
+    <span class="pill pill-accent">Investigación y desarrollo en laboratorio</span>
+    <span class="pill pill-accent">Ingeniería conceptual y de detalle</span>
+    <span class="pill pill-accent">Lean Six Sigma (Green Belt)</span>
+    <span class="pill pill-accent">Aspen Plus</span>
+    <span class="pill">Gestión por OKR</span>
+    <span class="pill">Power BI — KPIs</span>
+    <span class="pill">Kanban</span>
+  </div>
+
+  <div class="section-label">Proceso</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-line"><div class="step-dot">1</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Investigación en laboratorio — 6 meses</div>
+        <div class="step-desc">Lideré el equipo técnico en la búsqueda de una nueva formulación que hiciera viable la expansión sin aumentar espacio ni presupuesto de equipos. Tras 6 meses se encontró la formulación que redujo el ciclo de proceso en un tercio.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">2</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Ingeniería conceptual, básica y de detalle</div>
+        <div class="step-desc">Con la nueva formulación validada, desarrollé la ingeniería conceptual y lideré al equipo en la ingeniería básica y detallada para implementar el nuevo proceso a escala industrial.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">3</div></div>
+      <div class="step-content">
+        <div class="step-title">Implementación y puesta en marcha — 6 meses</div>
+        <div class="step-desc">Ejecución del proyecto, validación de parámetros operativos y seguimiento de KPIs hasta alcanzar la capacidad objetivo de 1.66x.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Resultados</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-value">1.66x</div>
+      <div class="result-metric">Expansión de capacidad de producción</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">-33%</div>
+      <div class="result-metric">Reducción del ciclo de proceso</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">-10%</div>
+      <div class="result-metric">Reducción de desechos del proceso</div>
+    </div>
+  </div>
+
+  <div class="section-label">Aprendizaje clave</div>
+  <div class="learning-box">
+    <div class="learning-label">Reflexión</div>
+    <p>Este proyecto me enseñó que a veces la solución a un problema de capacidad no está en comprar más equipos sino en repensar el proceso. Seis meses en laboratorio antes de tocar una sola pieza de ingeniería fue una decisión difícil de sostener — pero fue lo que hizo posible la expansión dentro del presupuesto disponible. Liderar tanto la investigación como la implementación en un mismo proyecto es algo que pocas veces se da, y fue la experiencia que más integró mis capacidades técnicas con las de gestión.</p>
+  </div>
+</div>
+
+
+<!-- CASO 4 -->
+<div class="page-break"></div>
+<div class="case" id="caso4">
+  <div class="case-header">
+    <div>
+      <div class="case-number">Caso de Estudio 04</div>
+      <div class="case-title">Monitoreo de Corriente IoT<br>para Mantenimiento Predictivo</div>
+    </div>
+    <div class="case-meta">
+      <div class="meta-row">
+        <span class="meta-key">Rol</span>
+        <span class="meta-val">Director de Ing. de Proyectos</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Inversión</span>
+        <span class="meta-val">USD 10,000</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Duración</span>
+        <span class="meta-val">3 – 6 meses</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Tecnología</span>
+        <span class="meta-val">Acrel IoT</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">El problema</div>
+  <p>Los equipos más críticos de la planta operaban sin ningún tipo de visibilidad eléctrica en tiempo real. Las fallas llegaban sin aviso — sin datos previos que permitieran anticiparlas, diagnosticarlas o prevenirlas. Cada parada inesperada representaba pérdida de producción, costos de reparación no planificados y presión operativa sobre el equipo. La planta era reactiva por necesidad, no por elección.</p>
+
+  <div class="section-label">La solución</div>
+  <p>Implementación de un sistema de monitoreo de corriente eléctrica en tiempo real conectado a plataforma IoT en los equipos más críticos de la planta. El sistema establece perfiles de consumo normal para cada equipo y detecta automáticamente cualquier desviación — arranques anormales, sobrecargas, consumos fuera de parámetro — antes de que se conviertan en fallas. Por primera vez, el equipo de ingeniería puede ver el estado eléctrico de la planta desde cualquier lugar y en cualquier momento.</p>
+
+  <div class="section-label">Metodología y herramientas</div>
+  <div class="pills">
+    <span class="pill pill-accent">Mantenimiento predictivo</span>
+    <span class="pill pill-accent">Medidores Acrel IoT</span>
+    <span class="pill pill-accent">Monitoreo en tiempo real</span>
+    <span class="pill">Análisis de perfiles de corriente</span>
+    <span class="pill">Detección de anomalías</span>
+    <span class="pill">Plataforma IoT en la nube</span>
+    <span class="pill">Power BI</span>
+  </div>
+
+  <div class="section-label">Proceso</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-line"><div class="step-dot">1</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Identificación de equipos críticos</div>
+        <div class="step-desc">Selección de los equipos de mayor impacto operacional — aquellos cuya falla genera paros de producción o daños en cadena.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">2</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Instalación de medidores Acrel</div>
+        <div class="step-desc">Montaje de medidores de corriente con conectividad WiFi e integración directa a plataforma IoT en la nube — sin necesidad de infraestructura adicional.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">3</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Establecimiento de perfiles de operación normal</div>
+        <div class="step-desc">Registro de los rangos de corriente normales de cada equipo en distintas condiciones operativas — base de referencia para la detección de anomalías.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">4</div></div>
+      <div class="step-content">
+        <div class="step-title">Monitoreo continuo y alertas</div>
+        <div class="step-desc">Sistema activo 24/7 con alertas automáticas ante desviaciones. Visualización en tiempo real desde cualquier dispositivo — la planta siempre visible, sin importar la ubicación.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Resultado</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-value">24/7</div>
+      <div class="result-metric">Visibilidad eléctrica continua de equipos críticos</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">0</div>
+      <div class="result-metric">Intervenciones correctivas no anticipadas desde la implementación</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">100%</div>
+      <div class="result-metric">Equipos críticos con perfil de corriente documentado</div>
+    </div>
+  </div>
+
+  <div class="section-label">Aprendizaje clave</div>
+  <div class="learning-box">
+    <div class="learning-label">Reflexión</div>
+    <p>El valor de este proyecto no se mide en fallas evitadas todavía — se mide en la capacidad que no teníamos antes. Una planta que no puede ver sus equipos en tiempo real toma decisiones de mantenimiento basadas en intuición o en que algo ya falló. Este sistema cambia eso: ahora tenemos datos, tendencias y alertas. El mantenimiento predictivo no es una tecnología — es una forma distinta de operar, y este proyecto es el primer paso hacia eso.</p>
+  </div>
+</div>
+
+<!-- CASO 5 -->
+<div class="page-break"></div>
+<div class="case" id="caso5">
+  <div class="case-header">
+    <div>
+      <div class="case-number">Caso de Estudio 05</div>
+      <div class="case-title">Reducción de Desecho en Bodega<br>mediante Lean Six Sigma</div>
+    </div>
+    <div class="case-meta">
+      <div class="meta-row">
+        <span class="meta-key">Rol</span>
+        <span class="meta-val">Director de Ing. de Proyectos</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Inversión</span>
+        <span class="meta-val">USD 15,000</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Duración</span>
+        <span class="meta-val">8 meses</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Metodología</span>
+        <span class="meta-val">Lean Six Sigma</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">El problema</div>
+  <p>La bodega de producto terminado presentaba niveles elevados de desecho — producto dañado antes de salir de la planta. El problema era visible pero su causa no. Sin un análisis estructurado era imposible saber si el origen era el proceso, el empaque, el transporte interno o las condiciones ambientales de almacenamiento. Cada unidad dañada era costo directo sin recuperación.</p>
+
+  <div class="section-label">La solución</div>
+  <p>Lideré un estudio de 5 meses bajo metodología Lean Six Sigma para identificar la causa raíz del desecho. El análisis determinó que la baja humedad ambiental en bodega era el factor crítico — las condiciones secas degradaban el producto antes de su despacho. Con la causa identificada, se implementaron humidificadores ultrasónicos industriales en 3 meses, controlando las condiciones ambientales dentro de los parámetros óptimos de conservación.</p>
+
+  <div class="section-label">Metodología y herramientas</div>
+  <div class="pills">
+    <span class="pill pill-accent">Lean Six Sigma (Green Belt)</span>
+    <span class="pill pill-accent">Análisis de causa raíz (RCA)</span>
+    <span class="pill pill-accent">DMAIC</span>
+    <span class="pill">Control ambiental industrial</span>
+    <span class="pill">Humidificadores ultrasónicos</span>
+    <span class="pill">Power BI — KPIs</span>
+  </div>
+
+  <div class="section-label">Proceso</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-line"><div class="step-dot">1</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Estudio y análisis — 5 meses</div>
+        <div class="step-desc">Recolección de datos, mapeo del flujo de producto en bodega, análisis estadístico de desecho e identificación de variables críticas bajo metodología Lean Six Sigma.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">2</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Identificación de causa raíz</div>
+        <div class="step-desc">La baja humedad ambiental en bodega fue identificada como el factor crítico que degradaba el producto. Hallazgo no evidente sin el análisis estructurado.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">3</div></div>
+      <div class="step-content">
+        <div class="step-title">Implementación — 3 meses</div>
+        <div class="step-desc">Adquisición e instalación de humidificadores ultrasónicos industriales con control automático de humedad relativa dentro de los rangos óptimos de conservación del producto.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Resultados</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-value">-20%</div>
+      <div class="result-metric">Reducción de desecho en bodega de producto terminado</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">$15k</div>
+      <div class="result-metric">Inversión total en solución implementada</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">5 m</div>
+      <div class="result-metric">De análisis antes de tocar una sola variable del proceso</div>
+    </div>
+  </div>
+
+  <div class="section-label">Aprendizaje clave</div>
+  <div class="learning-box">
+    <div class="learning-label">Reflexión</div>
+    <p>Sin el análisis de Six Sigma, la reacción instintiva hubiera sido cambiar el empaque, revisar el proceso o culpar al proveedor. La causa real — humedad ambiental — no era obvia y nunca hubiera aparecido sin datos. Este proyecto confirmó que la metodología no es burocracia: es lo que separa una solución real de un parche costoso.</p>
+  </div>
+</div>
+
+<!-- CASO 6 -->
+<div class="page-break"></div>
+<div class="case" id="caso6">
+  <div class="case-header">
+    <div>
+      <div class="case-number">Caso de Estudio 06</div>
+      <div class="case-title">Nuevo Proceso con Dióxido de Cloro<br>y Torres de Absorción para Control de Emisiones</div>
+    </div>
+    <div class="case-meta">
+      <div class="meta-row">
+        <span class="meta-key">Rol</span>
+        <span class="meta-val">Director de Ing. de Proyectos</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Inversión</span>
+        <span class="meta-val">USD 45,000</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Duración</span>
+        <span class="meta-val">6 – 12 meses</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-key">Fabricación</span>
+        <span class="meta-val">China — bajo diseño propio</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">El problema</div>
+  <p>El proceso existente no aprovechaba todo el potencial de recuperación de materia prima. La oportunidad estaba en incorporar dióxido de cloro — un compuesto altamente reactivo y tóxico — como agente de proceso. El reto no era solo técnico sino de seguridad: el dióxido de cloro no puede transportarse, debe prepararse en sitio, y sus emisiones representan un riesgo real para los operarios. Sin un sistema de control de emisiones adecuado, la implementación era inviable.</p>
+
+  <div class="section-label">La solución</div>
+  <p>Desarrollo del nuevo proceso desde laboratorio hasta escala industrial, combinado con el diseño e implementación de un sistema de control de emisiones. Se desarrolló la ingeniería conceptual, básica y detallada de torres de absorción para capturar las emisiones de dióxido de cloro y mantener el ambiente de trabajo dentro de los límites seguros. Por la naturaleza corrosiva del compuesto, los equipos requirieron materiales especiales — fueron fabricados en China bajo nuestras especificaciones técnicas e importados directamente.</p>
+
+  <div class="section-label">Metodología y herramientas</div>
+  <div class="pills">
+    <span class="pill pill-accent">Desarrollo en laboratorio</span>
+    <span class="pill pill-accent">Ingeniería conceptual, básica y de detalle</span>
+    <span class="pill pill-accent">Diseño de torres de absorción</span>
+    <span class="pill pill-accent">Gestión de sustancias peligrosas</span>
+    <span class="pill">Aspen Plus</span>
+    <span class="pill">P&ID</span>
+    <span class="pill">HAZOP</span>
+    <span class="pill">Fabricación internacional bajo especificación</span>
+    <span class="pill">Importación técnica</span>
+  </div>
+
+  <div class="section-label">Proceso</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-line"><div class="step-dot">1</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Desarrollo en laboratorio</div>
+        <div class="step-desc">Validación del nuevo método con dióxido de cloro a escala de laboratorio — verificación de parámetros de proceso, rendimiento y comportamiento del compuesto bajo condiciones controladas.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">2</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Ingeniería de proceso y seguridad</div>
+        <div class="step-desc">Desarrollo completo de ingeniería conceptual, básica y detallada del proceso y de las torres de absorción para control de emisiones tóxicas — incluyendo P&IDs y análisis HAZOP.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">3</div><div class="step-connector"></div></div>
+      <div class="step-content">
+        <div class="step-title">Fabricación internacional bajo especificación propia</div>
+        <div class="step-desc">Por la corrosividad del dióxido de cloro, los equipos requirieron materiales especiales. Se enviaron especificaciones técnicas a fabricante en China, se supervisó el proceso de fabricación y se gestionó la importación completa.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-line"><div class="step-dot">4</div></div>
+      <div class="step-content">
+        <div class="step-title">Implementación y puesta en marcha</div>
+        <div class="step-desc">Instalación del sistema, validación de las torres de absorción bajo condiciones reales de operación y verificación de emisiones dentro de límites seguros antes de arrancar el proceso.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Resultados</div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-value">+15%</div>
+      <div class="result-metric">Recuperación adicional de materia prima</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">0</div>
+      <div class="result-metric">Emisiones de ClO₂ por encima de límites seguros desde la implementación</div>
+    </div>
+    <div class="result-card">
+      <div class="result-value">$45k</div>
+      <div class="result-metric">CAPEX — equipos a medida fabricados en China bajo diseño propio</div>
+    </div>
+  </div>
+
+  <div class="section-label">Aprendizaje clave</div>
+  <div class="learning-box">
+    <div class="learning-label">Reflexión</div>
+    <p>Este proyecto exigió operar simultáneamente como químico, ingeniero de procesos e ingeniero de seguridad. El dióxido de cloro no da margen de error — un diseño deficiente no es un problema de eficiencia, es un problema de seguridad para las personas. Diseñar las torres de absorción bajo esa presión, con materiales no convencionales y fabricación en el exterior, fue el proyecto que más exigió integrar criterio técnico con responsabilidad real.</p>
+  </div>
+</div>
+
+<!-- PIE DE PÁGINA -->
+<div class="footer">
+  <div>
+    <div class="footer-name">Alejandro Soler Rey</div>
+    <div class="footer-role">Director de Ingeniería de Proyectos · Ingeniero Químico · Líder de Proyectos Técnicos</div>
+  </div>
+  <div class="footer-contact">
+    alejandrosore.96@gmail.com
